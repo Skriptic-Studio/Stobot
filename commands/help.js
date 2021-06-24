@@ -9,18 +9,18 @@ const Keyv = require('keyv');
 require("discord-reply")
 const embed = new Discord.MessageEmbed()
 
-message.lineReply(embed.setTitle('***Help***').setDescription('Here you can see all commands of a given type\n\n**Press the type of command that you want:**\n1. Store commands\n2. Get commands\n3. Clear commands').setFooter('Answer 4 to cancel'))
+message.lineReply(embed.setTitle('***Help***').setDescription('Here you can see all commands of a given type\n\n**Press the type of command that you want:**\n1. Store commands\n2. Get commands\n3. Clear commands').setFooter('Answer 4 to cancel').setColor('#fdfd96'))
 
 let filter = msg => msg.author.id == message.author.id;
 const collector = message.channel.createMessageCollector(filter, { time: 15000 });
 collector.on("collect", async msg => {
 	if(msg.content == '1'){
-		message.lineReply(embed.setTitle('***Store Commands***').setDescription("**s.store**\nStores user information.\n\n**s.storeserver**\nStores server information.\n\nIts needed to give all arguments separated by '|'").setFooter('You can see more detais using s.help <command>'));
+		message.lineReply(embed.setTitle('***Store Commands***').setDescription("**s.store**\nStores user information.\n\n**s.storeserver**\nStores server information.\n\nIt's needed to give all arguments separated by '|'").setFooter('You can see more detais using s.help <command>').setColor('#fef24e'));
 		
 	} else if(msg.content == '2') {
-		message.lineReply(embed.setTitle('***Get Commands***').setDescription('**s.get**\nGets user information.\n\n**s.getserver**\nGets server information.\n\nUse an information name as argument and get this specific information.').setFooter('You can see more detais using s.help <command>'));
+		message.lineReply(embed.setTitle('***Get Commands***').setDescription('**s.get**\nGets user information.\n\n**s.getserver**\nGets server information.\n\nUse an information name as argument and get this specific information.').setFooter('You can see more detais using s.help <command>').setColor('#fef24e'));
 	} else if(msg.content == '3') {
-		message.lineReply(embed.setTitle('***Clear Commands***').setDescription("**s.clear**\n Clears all user information.\n\n**s.clear server**\n Clears all server information.").setFooter('You can see more detais using s.help <command>'));
+		message.lineReply(embed.setTitle('***Clear Commands***').setDescription("**s.clear**\n Clears all user information.\n\n**s.clear server**\n Clears all server information.").setFooter('You can see more detais using s.help <command>').setColor('#fef24e'));
 	} else if(msg.content == '4') {
 		message.lineReply('Canceled');
 	}

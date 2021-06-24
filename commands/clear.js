@@ -28,9 +28,22 @@ if(!args) {
 }
 if(args=="all") {
 	if(message.author.id=="639599540512620544" || message.author.id=="460429419404853248") {
-		await userStorage.clear().then(()=>{
-			message.lineReply(embed.setTitle("**Deleted**").setDescription("You deleted all users database dev, no regrets now.").setFooter("I hope it was because you wanted to."));
+		message.lineReply(embed.setTitle("**Are you sure?**").setDescription("This command will delete all users storage.").setFooter("Answer with 'yes'|'y', or 'no'|'n'."))
+
+		let filter = msg => msg.author.id == message.author.id && (msg.content == 'y'||msg.content == 'yes'||msg.content == 'n'||msg.content == 'no');
+		const collector = message.channel.createMessageCollector(filter, { time: 15000 });
+		collector.on("collect", async msg => {
+			if(msg.content == 'y'||msg.content == 'yes'){
+				await userStorage.clear().then(()=>{
+				message.lineReply(embed.setTitle("**Deleted**").setDescription("You deleted all users database dev, no regrets now.").setFooter("I hope it was because you wanted to."));
+			})
+			} else {
+				return message.lineReply("Proccess Cancelled")
+			}
+			collector.stop()
 		})
+
+		
 	}
 	else {
 		return;

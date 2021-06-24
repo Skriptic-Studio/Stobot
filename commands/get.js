@@ -19,7 +19,7 @@ if(!args) {
 	for (let info of Object.keys(userDb)){
 		description += `**- ${info}:\n**${userDb[info][0]}\n\n`
 	}
-	return message.lineReply(embed.setTitle('**Informations:**').setDescription(description).setThumbnail("https://cdn.discordapp.com/attachments/856971631515926559/856980785668423710/1f5c3.png"));
+	return message.lineReply(embed.setTitle('**Informations:**').setDescription(description).setColor('#0000ff').setThumbnail("https://cdn.discordapp.com/attachments/856971631515926559/856980785668423710/1f5c3.png"));
 }
 
 if(!userDb[args]) return message.lineReply('You dont own that information.');
