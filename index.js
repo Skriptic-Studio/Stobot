@@ -4,6 +4,7 @@ const fs = require('fs');
 const ms = require('ms');
 const Keyv = require('keyv');
 require("discord-reply")
+require("./web.js");
 const prefix = "s.";
 const client = new Discord.Client({ disableMentions: 'everyone' });
 client.commands = new Discord.Collection();
